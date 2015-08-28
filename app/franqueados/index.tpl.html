@@ -1,0 +1,128 @@
+
+
+<link rel="stylesheet" href="styles/franqueados.css">
+
+
+<div ng-include="'franqueados/sidebar.tpl.html'"></div>
+
+
+<nav> 
+	<div class="nav-wrapper grey darken-4" > <!-- #2a3542; -->
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="" data-activates="dropdown1">Minha Conta<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content ">
+  <li><a href="">Meus Dados</a></li>
+  <li><a href="">outros</a></li>
+  <li class="divider"></li>
+  <li><a  ng-click="authCtrl.logout()" onclick="Materialize.toast('Voce foi desconectado com sucesso !!, 3000);">Sair</a></li>
+</ul>
+
+
+<script type="text/javascript" charset="utf-8">
+	 $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+
+
+ $(".button-collapse").sideNav();
+
+	$(".dropdown-button").dropdown();
+$('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      ready: function() { }, // Callback for Modal open
+      complete: function() {  } // Callback for Modal close
+    }
+  );
+
+
+
+
+
+$(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- espaco antes da folha -->
+	<div class="row">
+		
+
+
+
+	 
+	</div>
+
+	<div ui-view></div>
+
+
+
+				
+
+
+
+		</div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  </div>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+	$(".button-collapse").sideNav();
+</script>

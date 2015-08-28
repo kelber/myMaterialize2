@@ -1,0 +1,29 @@
+.brand-logo {
+	margin-left: 5%;
+}
+
+.loginIntro {
+	font-size: 1.1em;
+}
+
+
+.cartao {
+	width: 105%;
+
+	color: white;
+}
+#saibaMais {
+	font-size: 1,2em;
+	width: auto;
+}
+
+body  {
+    background-image: url("../sp2.jpg");
+	background-size: 100%; 
+	background-repeat: initial;
+  /*    background-color: #cccccc;  */
+}
+
+.well {
+	background-color: whitesmoke;
+}

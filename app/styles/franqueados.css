@@ -1,0 +1,39 @@
+
+body {
+	background-color:  #f2f3f7;     
+}
+
+
+.nav-wrapper {
+	margin-top: none;
+	color: green;
+}
+
+h3 {
+font-family: 'Gotham A', 'Helvetica Neue' ;
+}
+.navbar {
+	background-color:  #7b8087;
+		color: white;
+
+}
+
+/*
+li a :hover  {
+	background-color: steelblue;
+
+}
+*/
+
+/*
+hr {
+   border-style: dashed;
+}
+
+*/
+
+ul  .active {
+	font-weight: bold;
+	background-color: lightgrey;
+	width: 100%;
+	}

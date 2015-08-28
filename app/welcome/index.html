@@ -1,0 +1,52 @@
+
+<link rel="stylesheet" href="styles/mystyles.css">
+
+
+
+
+
+
+
+<div ng-include="'welcome/headerSimples.tpl.html'"></div> 
+
+	<!-- 
+<a href="http://demo.geekslabs.com/materialize/v2.1/layout01/app-widget.html"></a>
+	-->
+
+
+<div class="container">
+	<h2 align="center">ULTRA VISÃO FRANCHISING</h2>
+	<h4 align="center">Abertura de Lojas 2015/2016</h4>
+	<!-- <h2 align="center"> UltraVisão Franchising </h2> -->
+	<div class="row">
+		<div class="col s12 offset-m3 m5 z-depth-5 ">
+			<img class="cartao center-align " ng-src="cartao.jpg"></div>
+		</div>
+	<div class="center-align">
+		<button id="saibaMais" class="btn btn-large amber  z-depth-4" ui-sref="ultravisao.sobre">Saiba Mais</button>
+	</div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+	<div ng-include="'auth/messages.tpl.html'"></div>
+	<div ng-include="'auth/login.tpl.html'"></div> 
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+		<div ng-include="'auth/messages.tpl.html'"></div>
+		<div ng-include="'auth/register.tpl.html'"></div> 
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+
+
+
