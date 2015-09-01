@@ -1,6 +1,6 @@
 {
   "firebase": "minhafranquia",
-  "public": ".",
+  "public": "app/",
   "ignore": [
     "firebase.json",
     "**/.*",
