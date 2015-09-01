@@ -13,14 +13,15 @@ h3 {
 font-family: 'Gotham A', 'Helvetica Neue' ;
 }
 .navbar {
-	background-color:  #7b8087;
-		color: white;
+	background-color: green;
+	color: white;
 
 }
 
-/*
+/* #7b8087;
+
 li a :hover  {
-	background-color: steelblue;
+	background-color:  #ffc107;
 
 }
 */
@@ -34,6 +35,6 @@ hr {
 
 ul  .active {
 	font-weight: bold;
-	background-color: lightgrey;
+	background-color: #ffc107;
 	width: 100%;
 	}

@@ -12,6 +12,11 @@ angular.module('myApp', [
 				templateUrl:  'welcome/index.html',
 				controller:  'AuthCtrl as authCtrl'
 			})
+			.state('ugc', {
+				url: '/ugc',
+				templateUrl: 'welcome/ugc.html',
+				controller: 'WelcomeCtrl as welcomeCtrl',
+			})
 			.state('ultravisao', {
 				url: '/ultravisao',
 				templateUrl: 'welcome/ultravisao.tpl.html',
@@ -59,7 +64,21 @@ angular.module('myApp', [
 				url: '/franqueados',
 				templateUrl: 'franqueados/index.tpl.html',
 				controller:  'FranqueadosCtrl as franqueadosCtrl',
-				controller:  'AuthCtrl as authCtrl'
+				controller: 'AuthCtrl as authCtrl',
+				resolve: {
+					// controller will not be loaded until $requireAuth resolves
+					// Auth refers to our $firebaseAuth wrapper in the example above
+					"currentAuth": ["Auth", function(Auth) {
+					  // $requireAuth returns a promise so the resolve waits for it to complete
+					  // If the promise is rejected, it will throw a $stateChangeError (see above)
+					  return Auth.$requireAuth();
+					}]
+				  }
+
+
+
+
+				  
 
 			})
 			.state('franqueados.bemvindos', {
@@ -94,18 +113,67 @@ angular.module('myApp', [
 			.state('franqueados.cadastros', {
 				url: '/cadastros',
 				templateUrl: 'franqueados/cadastros.tpl.html',
-				controller:  'FranqueadosCtrl as franqueadosCtrl',
-				controller:  'AuthCtrl as authCtrl'
+				controller:  'ProfileCtrl as profileCtrl',
+				resolve: {
+					auth: function ($state,Users,Auth) {
+						Auth.$requireAuth().catch(function () {
+							$state.go('welcome');
+						});
+					},
+					profile: function (Users,Auth) {
+						return Auth.$requireAuth().then(function (auth) {
+							return Users.getProfile(auth.uid).$loaded();
+						});
+					}
+				}
+				
 
 			})
+		
 			.state('franqueados.relacaodocumentos', {
-				url: '/relacao-de-documentos',
-				templateUrl: 'franqueados/relacaodedocumentos.tpl.html',
-				controller:  'FranqueadosCtrl as franqueadosCtrl',
-				controller:  'AuthCtrl as authCtrl'
+				url: '/documentos',
+				templateUrl: 'franqueados/documentos.tpl.html',
+				//controller:  'FranqueadosCtrl as franqueadosCtrl',
+				//controller:  'DocsCtrl as docsCtrl',
+				//controller: 'AuthCtrl as authCtrl',
+				controller:  'ProfileCtrl as profileCtrl',
+				resolve: {
+					auth: function ($state,Users,Auth) {
+						Auth.$requireAuth().catch(function () {
+							$state.go('welcome');
+						});
+					},
+					profile: function (Users,Auth) {
+						return Auth.$requireAuth().then(function (auth) {
+							return Users.getProfile(auth.uid).$loaded();
+						});
+					}
+				}
 
 			})
-	
+			.state('franqueados.sidebar', {
+				url: '/sidebar',
+				templateUrl: 'franqueados/sidebar.tpl.html',
+				//controller:  'FranqueadosCtrl as franqueadosCtrl',
+				//controller:  'DocsCtrl as docsCtrl',
+				//controller: 'AuthCtrl as authCtrl',
+				controller:  'ProfileCtrl as profileCtrl',
+				resolve: {
+					auth: function ($state,Users,Auth) {
+						Auth.$requireAuth().catch(function () {
+							$state.go('welcome');
+						});
+					},
+					profile: function (Users,Auth) {
+						return Auth.$requireAuth().then(function (auth) {
+							return Users.getProfile(auth.uid).$loaded();
+						});
+					}
+				}
+
+			})
+
+
 			.state('franqueados.minutas', {
 				url: '/minutas',
 				templateUrl: 'franqueados/minutas.tpl.html',
@@ -117,10 +185,30 @@ angular.module('myApp', [
 			// COF
 			// -----------------------------------------------
 			.state('cof', {
-				url: '/cof',
-				templateUrl: 'cof/cof.tpl.html',
-				controller:  'FranqueadosCtrl as franqueadosCtrl',
-				controller:  'AuthCtrl as authCtrl'
+				url: '/circular-oferta-de-franquia',
+				templateUrl: 'franqueados/cof/cof.tpl.html',
+				controller:  'ProfileCtrl as profileCtrl',
+				resolve: {
+					auth: function ($state,Users,Auth) {
+						Auth.$requireAuth().catch(function () {
+							$state.go('welcome');
+						});
+					},
+					profile: function (Users,Auth) {
+						return Auth.$requireAuth().then(function (auth) {
+							return Users.getProfile(auth.uid).$loaded();
+						});
+					}
+				}
+				
+
+
+			
+
+
+
+
+
 
 			})
 

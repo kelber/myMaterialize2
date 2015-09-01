@@ -5,10 +5,9 @@
 				<object id="front-page-logo" type="image/svg+xml" data="logoultrablack250.png" style="size: 5%">
 		</object></a>
 		-->
-		<h4 align="center" ui-sref="franqueados.bemvindos">Ultra Visao</h4>
+		<h4 align="center" ui-sref="franqueados.bemvindos">Ultra Visão</h4>
 		
 		<p align="center" style="text-decoration: underline;" ><i>Modulo Franchising</i></p>
-		</li>
         <li class="no-padding">
               <div class="collapsible-body" style="display: block;">
 				  <ul ui-sref-active="active">
@@ -17,7 +16,11 @@
                   <li><a ui-sref="franqueados.cronogramas" ui-sref-active="active">Investimentos R$</a></li>
 				  <li><a ui-sref="franqueados.resumocof" ui-sref-active="active">Resumo COF</a></li>
                  <li><a ui-sref="franqueados.cadastros" ui-sref-active="active">Cadastros</a></li>
-				 <li><a ui-sref="franqueados.relacaodocumentos" ui-sref-active="active">Documentacao</a></li>
+
+			 <li ng-show="profileCtrl.form.$valid">
+					 <a ui-sref="franqueados.relacaodocumentos" ui-sref-active="active" >Documentação</a>
+			 </li>
+
 				 <!-- 
                  <li><a ui-sref="cof" ui-sref-active="active">COF</a></li>
 				 <li><a ui-sref="franqueados.relacaodocumentos" ui-sref-active="active">Documentacao</a></li>
